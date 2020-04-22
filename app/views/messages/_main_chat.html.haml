@@ -1,0 +1,66 @@
+.main-chat
+  .main-chat__main-header
+    .main-chat__main-header__left-box
+      %p.main-chat__main-header__left-box__current-group
+        test
+      %p.main-chat__main-header__left-box__member-list
+        Member : masa
+    %p.main-chat__main-header__edit-btn
+      =link_to 'Edit', "#", class: "main-chat__main-header__edit-btn__edit-link"
+  .main-chat__message-box
+    .main-chat__message-box__message
+      .main-chat__message-box__message__upper-info
+        %p.main-chat__message-box__message__upper-info__talker
+          masa
+        %p.main-chat__message-box__message__upper-info__date
+          2019/11/20(Wed)17:43:01
+      %p.main-chat__message-box__message__text
+        おはよう！
+    .main-chat__message-box__message
+      .main-chat__message-box__message__upper-info
+        %p.main-chat__message-box__message__upper-info__talker
+          masa
+        %p.main-chat__message-box__message__upper-info__date
+          2019/11/20(Wed)17:43:01
+      %p.main-chat__message-box__message__text
+        おはよう！
+    .main-chat__message-box__message
+      .main-chat__message-box__message__upper-info
+        %p.main-chat__message-box__message__upper-info__talker
+          masa
+        %p.main-chat__message-box__message__upper-info__date
+          2019/11/20(Wed)17:43:01
+      %p.main-chat__message-box__message__text
+        おはよう！
+    .main-chat__message-box__message
+      .main-chat__message-box__message__upper-info
+        %p.main-chat__message-box__message__upper-info__talker
+          masa
+        %p.main-chat__message-box__message__upper-info__date
+          2019/11/20(Wed)17:43:01
+      %p.main-chat__message-box__message__text
+        おはよう！
+    .main-chat__message-box__message
+      .main-chat__message-box__message__upper-info
+        %p.main-chat__message-box__message__upper-info__talker
+          masa
+        %p.main-chat__message-box__message__upper-info__date
+          2019/11/20(Wed)17:43:01
+      %p.main-chat__message-box__message__text
+        おはよう！
+    .main-chat__message-box__message
+      .main-chat__message-box__message__upper-info
+        %p.main-chat__message-box__message__upper-info__talker
+          masa
+        %p.main-chat__message-box__message__upper-info__date
+          2019/11/20(Wed)17:43:01
+      %p.main-chat__message-box__message__text
+        おはよう！
+  .main-chat__form
+    %form.new-message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('far', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+    %input{type: "submit", class: "submit-btn", value: "Send"}
