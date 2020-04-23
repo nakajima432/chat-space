@@ -41,15 +41,19 @@ $color-text: #ffffff;
     padding: 20px 20px 0;
     box-sizing: border-box;
     overflow: scroll;
-    &__group {
+    .group {
       margin-bottom: 40px;
       font-weight: bold;
-      &__group-name {
+      text-decoration: none;
+      .link {
+        text-decoration: none;
+      }
+      .group-name {
         color: $color-text;
         font-size: 15px;
         margin-bottom: 5px;
       }
-      &__latest-message {
+      .latest-message {
         color: $color-text;
         font-size: 11px
       }
