@@ -4,8 +4,9 @@
       %p.main-chat__main-header__left-box__current-group
         = @group.name
       %p.main-chat__main-header__left-box__member-list
+        Member : 
         - @group.users.each do |u|
-          =u.name
+          = u.name
     %p.main-chat__main-header__edit-btn
       =link_to 'Edit', edit_group_path(@group) , class: "main-chat__main-header__edit-btn__edit-link"
   .message-box
