@@ -34,30 +34,36 @@
       }
     }
   }
-  &__message-box {
+  .message-box {
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding: 35px 40px;
     overflow: scroll;
-    &__message {
+    .message {
       padding-bottom: 46px;
-      &__upper-info {
+      .upper-info {
         display: flex;
         margin-bottom: 12px;
-        &__talker {
+        .talker {
           color: #333333;
           font-size: 16px;
           font-weight: bold;
         }
-        &__date {
+        .date {
           color: #999999;
           font-size: 12px;
           margin-left: 10px;
         }
       }
-      &__text {
-        color: #434a54;
-        font-size: 14px;
+      .lower-message {
+        .lower-message__content{
+          color: #434a54;
+          font-size: 14px;
+        }
+        .lower-message__image {
+          width: 200px;
+          height: 150px;
+        }
       }
     }
   }
@@ -67,12 +73,12 @@
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
-    .new-message {
-      display: flex;
+    .new_message{ 
       width: 100%;
+      display: flex;
       .input-box {
-        width: 100%;
         display: flex;
+        width: 100%;
         position: relative;
         .input-box__text {
           width: 100%;
@@ -81,13 +87,15 @@
           border-style: none;
           padding: 0 40px 0 10px;
         }
-        .input-box__image {
+      }
+      .content {
+        position: absolute;
+        top: 9px;
+        right: 10px;
+        .content__image {
           cursor: pointer;
           font-size: 1.4rem;
-          position: absolute;
-          top: 9px;
-          right: 10px;
-          .input-box__image__file {
+          .content__image__file {
             display: none;
           }
         }

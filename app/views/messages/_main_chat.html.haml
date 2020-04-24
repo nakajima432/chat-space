@@ -2,65 +2,20 @@
   .main-chat__main-header
     .main-chat__main-header__left-box
       %p.main-chat__main-header__left-box__current-group
-        test
+        = @group.name
       %p.main-chat__main-header__left-box__member-list
-        Member : masa
+        - @group.users.each do |u|
+          =u.name
     %p.main-chat__main-header__edit-btn
-      =link_to 'Edit', "#", class: "main-chat__main-header__edit-btn__edit-link"
-  .main-chat__message-box
-    .main-chat__message-box__message
-      .main-chat__message-box__message__upper-info
-        %p.main-chat__message-box__message__upper-info__talker
-          masa
-        %p.main-chat__message-box__message__upper-info__date
-          2019/11/20(Wed)17:43:01
-      %p.main-chat__message-box__message__text
-        おはよう！
-    .main-chat__message-box__message
-      .main-chat__message-box__message__upper-info
-        %p.main-chat__message-box__message__upper-info__talker
-          masa
-        %p.main-chat__message-box__message__upper-info__date
-          2019/11/20(Wed)17:43:01
-      %p.main-chat__message-box__message__text
-        おはよう！
-    .main-chat__message-box__message
-      .main-chat__message-box__message__upper-info
-        %p.main-chat__message-box__message__upper-info__talker
-          masa
-        %p.main-chat__message-box__message__upper-info__date
-          2019/11/20(Wed)17:43:01
-      %p.main-chat__message-box__message__text
-        おはよう！
-    .main-chat__message-box__message
-      .main-chat__message-box__message__upper-info
-        %p.main-chat__message-box__message__upper-info__talker
-          masa
-        %p.main-chat__message-box__message__upper-info__date
-          2019/11/20(Wed)17:43:01
-      %p.main-chat__message-box__message__text
-        おはよう！
-    .main-chat__message-box__message
-      .main-chat__message-box__message__upper-info
-        %p.main-chat__message-box__message__upper-info__talker
-          masa
-        %p.main-chat__message-box__message__upper-info__date
-          2019/11/20(Wed)17:43:01
-      %p.main-chat__message-box__message__text
-        おはよう！
-    .main-chat__message-box__message
-      .main-chat__message-box__message__upper-info
-        %p.main-chat__message-box__message__upper-info__talker
-          masa
-        %p.main-chat__message-box__message__upper-info__date
-          2019/11/20(Wed)17:43:01
-      %p.main-chat__message-box__message__text
-        おはよう！
+      =link_to 'Edit', edit_group_path(@group) , class: "main-chat__main-header__edit-btn__edit-link"
+  .message-box
+    = render @messages
   .main-chat__form
-    %form.new-message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('far', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-    %input{type: "submit", class: "submit-btn", value: "Send"}
+        = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+        .content
+          = f.label :image, class: "content__image" do
+            = icon('far', 'image')
+            = f.file_field :image, class: "content__image__file"
+      = f.submit 'Send', class: "submit-btn", value: "Send"
