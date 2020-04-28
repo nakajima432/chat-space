@@ -76,15 +76,15 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      if (messages.length !== 0) {
+      if (messages.length !== 0) { //jbuilderから送られた配列内にメッセージが一つでも格納されていれば下記の設定が起動する
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
         //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-        $.each(messages, function(i, message) {
+        $.each(messages, function(i, message) { //第一引数iは、inputの頭文字
           insertHTML += buildHTML(message)
         });
         //メッセージが入ったHTMLに、入れ物ごと追加
-        $('.message-box').append(insertHTML);
+        $('.message-box').append(insertHTML); //message-boxクラスにわざわざinsertHTMLを入れて取得したメッセージのHTMLを表示する理由は、下記の自動更新スクロール設定を起動するため
         $('.message-box').animate({ scrollTop: $('.message-box')[0].scrollHeight});
       }
     })
@@ -92,7 +92,8 @@ $(function(){
       alert('error');
     });
   };
-  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+  // 下記のreloadMessages関数からイベントが発火する（自動更新機能が起動する）
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {  //今いるページのリンクが/groups/グループID/messagesのパスとマッチすれば以下を実行。
     setInterval(reloadMessages, 7000);
   }
 });
